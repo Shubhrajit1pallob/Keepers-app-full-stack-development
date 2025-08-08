@@ -38,3 +38,13 @@ def handle_notes():
     return jsonify({"error": "Method not allowed"}), 405
 
 
+@notes_bp.route('/note/<int:note_id>/delete', methods=['DELETE'])
+def delete_note(note_id):
+    try:
+        note = Note.query.get_or_404(note_id)  # Find note with this ID
+        db.session.delete(note)
+        db.session.commit()
+        return jsonify({"message": "Note deleted successfully"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
