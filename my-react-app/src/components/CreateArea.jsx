@@ -23,12 +23,18 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
+    event.preventDefault();
+
+    if (!note.title.trim() && !note.content.trim()) {
+      alert("Please enter a title or content for your note.");
+      return;
+    }
+
     props.onAdd(note);
     setNote({
       title: "",
       content: "",
     });
-    event.preventDefault();
   }
 
   function expand() {
