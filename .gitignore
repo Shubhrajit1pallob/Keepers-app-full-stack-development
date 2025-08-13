@@ -131,3 +131,5 @@ tmp/
 temp/
 my-react-app/package-lock.json
 my-react-app/package.json
+
+!/my-react-app/dist/  # Allow the React app's dist/ folder
