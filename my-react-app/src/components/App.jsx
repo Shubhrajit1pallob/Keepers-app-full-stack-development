@@ -4,8 +4,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import config from "../config.js";
 
-const API_BASE_URL = "http://localhost:8888/api";
+const API_BASE_URL = `${config.apiUrl}/api`;
 
 function App() {
   const [notes, setNotes] = useState([]);

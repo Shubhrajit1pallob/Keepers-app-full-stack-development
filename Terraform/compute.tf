@@ -33,3 +33,21 @@ resource "aws_instance" "this" {
     Name = "KeepersAppInstance"
   }
 }
+
+// The key pair resource is used to allow SSH access to the instance
+resource "aws_key_pair" "this" {
+  key_name   = var.key_name
+  public_key = var.public_key
+}
+
+// The data source for the current AWS region
+data "aws_region" "current" {}
+
+// The Elastic IP resource is used to assign a static IP to the instance
+resource "aws_eip" "this" {
+  instance = aws_instance.this.id
+
+  tags = {
+    Name = "ElasticIP1"
+  }
+}

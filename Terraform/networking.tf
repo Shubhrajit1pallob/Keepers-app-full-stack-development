@@ -78,16 +78,3 @@ resource "aws_security_group" "this" {
     self             = false
   }
 }
-
-resource "aws_key_pair" "this" {
-  key_name   = var.key_name
-  public_key = var.public_key
-}
-
-resource "aws_eip" "this" {
-  instance = aws_instance.this.id
-
-  tags = {
-    Name = "ElasticIP1"
-  }
-}

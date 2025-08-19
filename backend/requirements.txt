@@ -1,6 +1,16 @@
-Flask==2.3.3
-Flask-CORS==4.0.0
-Flask-SQLAlchemy==3.0.5
-psycopg[binary]==3.2.9
-python-dotenv==1.0.0
-Flask-Migrate==4.0.5
+Flask==2.3.3                    # Web framework for Python
+Flask-CORS==4.0.0               # For handling Cross-Origin Resource Sharing (CORS)
+Flask-SQLAlchemy==3.0.5         # For SQLAlchemy integration
+psycopg[binary]==3.2.9          # PostgreSQL adapter for Python
+python-dotenv==1.0.0            # For loading environment variables
+Flask-Migrate==4.0.5            # For database migrations
+SQLAlchemy==2.0.20              # ORM for database interactions
+Flask-RESTful==0.3.9            # For building REST APIs
+Flask-JWT-Extended==4.4.4       # For JWT authentication
+Flask-Mail==0.9.1               # For sending emails
+Flask-Login==0.6.2              # For user session management
+gunicorn==20.1.0
+pytest==7.4.2                   # For testing
+black==23.7.0                   # For code formatting
+flake8==6.1.0                   # For linting
+requests==2.31.0                # For making HTTP requests
