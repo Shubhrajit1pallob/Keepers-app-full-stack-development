@@ -112,4 +112,9 @@ npm start
 3. Configure GitHub Actions to trigger AWS CodePipeline on push  
 4. Deploy backend to AWS EC2, frontend to S3/CloudFront  
 5. Connect frontend to backend API  
-6. Secure with IAM, HTTPS, and Secrets Manager  
+6. Secure with IAM, HTTPS, and Secrets Manager
+
+<!-- Remove this at the end of the project completion. -->
+## Notes to keep in mid for now
+
+1. Add the db_username and db_password to the env(githhub secrets)

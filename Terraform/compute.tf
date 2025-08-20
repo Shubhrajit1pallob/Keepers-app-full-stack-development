@@ -16,11 +16,11 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "this" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
-  subnet_id = aws_subnet.this.id
-  key_name = aws_key_pair.this.key_name
-  vpc_security_group_ids = [ aws_security_group.this.id ]
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.public.id
+  key_name               = aws_key_pair.this.key_name
+  vpc_security_group_ids = [aws_security_group.ec2.id]
 
 
   root_block_device {

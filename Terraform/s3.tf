@@ -67,9 +67,9 @@ resource "aws_s3_bucket_ownership_controls" "this" {
 }
 
 resource "aws_s3_bucket_acl" "this" {
-  depends_on = [  aws_s3_bucket_ownership_controls.this ]
-  bucket = aws_s3_bucket.this.id
-  acl = "private" // Set to private to avoid ACL issues
+  depends_on = [aws_s3_bucket_ownership_controls.this]
+  bucket     = aws_s3_bucket.this.id
+  acl        = "private" // Set to private to avoid ACL issues
   // Note: S3 bucket ACLs are not recommended for public access; use bucket policies
 }
 

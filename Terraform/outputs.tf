@@ -3,6 +3,6 @@ output "website_url" {
 }
 
 output "api_endpoint" {
-  value = "http://${aws_instance.this.public_ip}:8080"
+  value       = "http://${aws_instance.this.public_ip}:8080"
   description = "The API endpoint for the application"
 }
