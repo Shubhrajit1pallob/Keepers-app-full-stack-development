@@ -11,7 +11,9 @@ module "database" {
   ]
 
   credentials = {
-    username = "dbadmin"
-    password = "12-34_ab?"
+    username = var.db_username
+    password = var.db_password
   }
 }
+
+# I am not going to apply now I will do that in the github actions workflow file that will be a good place to start the next part of the project. Now we have to deploy through the CI/CD pipeline and bring the project together.
