@@ -114,7 +114,49 @@ npm start
 5. Connect frontend to backend API  
 6. Secure with IAM, HTTPS, and Secrets Manager
 
-<!-- Remove this at the end of the project completion. -->
-## Notes to keep in mid for now
+## 🌐 Environment Configuration
 
-1. Add the db_username and db_password to the env(githhub secrets)
+- Local development uses `.env` files for configuration.
+- Production uses environment variables set in GitHub Actions and AWS.
+- Sensitive values (AWS credentials, DB credentials) are stored in GitHub Secrets.
+
+## 🔄 CI/CD & Automated Deployment
+
+- **GitHub Actions** automates infrastructure provisioning and app deployment.
+- **Terraform** provisions AWS resources and outputs dynamic values (EC2 IP, RDS endpoint).
+- **React frontend** is built with the correct API endpoint and uploaded to S3.
+- **Flask backend** is containerized, pushed to ECR, and deployed to EC2.
+- Environment variables are used to configure both frontend and backend for production.
+
+## 📝 Notes
+
+- Ensure `db_username` and `db_password` are set in GitHub Secrets for production.
+- The API endpoint for the frontend is set using the EC2 public IP after infrastructure is provisioned.
+- Terraform outputs are used in the workflow to pass dynamic values to build and deployment steps.
+
+## 🚧 Future Improvements & Enhancements
+
+This project is designed to be extensible and a foundation for more advanced cloud-native architectures. Potential future enhancements include:
+
+1. **User Authentication & Authorization**
+   - Implement a login page for different users.
+   - Add authentication (e.g., JWT, OAuth) and role-based access control.
+
+2. **Security Hardening**
+   - Conduct security audits to identify and fix vulnerabilities.
+   - Implement HTTPS everywhere, use AWS Secrets Manager, and follow best practices for IAM policies.
+
+3. **Microservices & Event-Driven Architecture**
+   - Refactor the backend into multiple microservices.
+   - Use event-driven communication (e.g., AWS SNS/SQS, Kafka) for inter-service messaging.
+
+4. **Cloud Provider Migration**
+   - Explore migrating the infrastructure to other cloud providers (Azure, GCP).
+   - Compare cost, performance, and service offerings.
+
+5. **Additional Enhancements**
+   - More features and improvements will be added as the project evolves.
+
+---
+
+Feel free to contribute ideas or enhancements by opening issues or pull requests!
