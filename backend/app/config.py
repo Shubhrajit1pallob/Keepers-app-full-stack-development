@@ -4,9 +4,15 @@ class Config:
     # Change from:
     # SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost/keepers_db'
     
+    db_user = os.getenv('DB_USER', 'postgres')
+    db_password = os.getenv('DB_PASSWORD', 'mypass')
+    db_host = os.getenv('DB_HOST', 'localhost')
+    db_port = os.getenv('DB_PORT', '5431')
+    db_name = os.getenv('DB_NAME', 'keepers_db')
+
     # To (add +psycopg):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg://postgres:mypass@localhost:5431/keepers_db'
-    
+    SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):
