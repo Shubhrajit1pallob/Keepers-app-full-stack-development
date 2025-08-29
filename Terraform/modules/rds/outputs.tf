@@ -24,5 +24,5 @@ output "rds_instance_endpoint" {
 
 output "rds_instance_name" {
   description = "The name of the RDS instance"
-  value       = aws_db_instance.this.name
+  value       = aws_db_instance.this.db_name
 }

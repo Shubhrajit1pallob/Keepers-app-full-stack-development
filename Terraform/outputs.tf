@@ -12,6 +12,6 @@ output "s3_bucket_name" {
 }
 
 output "instance_elastic_ip" {
-  value = aws_eip.this.public_ip
+  value       = aws_eip.this.public_ip
   description = "The Elastic IP address of the instance"
 }
