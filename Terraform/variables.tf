@@ -9,6 +9,11 @@ variable "public_key" {
   type        = string
 }
 
+variable "private_key" {
+  description = "The private key for SSH access to the instance."
+  type        = string
+}
+
 variable "db_username" {
   description = "The username for the db instance."
   type        = string
