@@ -1,4 +1,4 @@
-FROM python:latest-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
@@ -17,4 +17,4 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8888
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8888", "run:app", "--workers", "3", "--timeout", "120"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8888", "--workers", "3", "--timeout", "120", "run:app"]
