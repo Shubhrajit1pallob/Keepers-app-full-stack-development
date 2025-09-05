@@ -42,6 +42,8 @@ resource "aws_s3_bucket_policy" "static_website_public_read" {
     ]
   })
 
+  depends_on = [ aws_s3_bucket_public_access_block.this ]
+
 }
 
 // 5. Configure the S3 bucket for static website hosting.

@@ -41,7 +41,7 @@ jobs:
 
             
             - name: Create necessary Terraform Infrastructure
-              run: terraform apply -target=aws_security_group.db -target=aws_vpc_security_group_ingress_rule.db -target=aws_vpc_security_group_egress_rule.db -target=aws_subnet.private1 -target=aws_subnet.private2  -target=aws_subnet.public -var "public_key=$AWS_SSH_KEY_PUBLIC" -var "private_key=$AWS_SSH_KEY_PRIVATE" -var "db_username=$AWS_RDS_USERNAME" -var "db_password=$AWS_RDS_PASSWORD" -auto-approve
+              run: terraform apply -target=aws_security_group.db -target=aws_vpc_security_group_ingress_rule.db -target=aws_vpc_security_group_egress_rule.db -target=aws_subnet.private1 -target=aws_subnet.private2 -var "public_key=$AWS_SSH_KEY_PUBLIC" -var "private_key=$AWS_SSH_KEY_PRIVATE" -var "db_username=$AWS_RDS_USERNAME" -var "db_password=$AWS_RDS_PASSWORD" -auto-approve
               working-directory: ./Terraform
             
             - name: Terraform Plan

@@ -157,7 +157,7 @@ resource "aws_security_group" "db" {
   }
 }
 
-resource "aws_vpc_security_group_egress_rule" "db" {
+resource "aws_vpc_security_group_ingress_rule" "db" {
   security_group_id            = aws_security_group.db.id
   referenced_security_group_id = aws_security_group.ec2.id
   ip_protocol                  = "tcp"
@@ -165,10 +165,10 @@ resource "aws_vpc_security_group_egress_rule" "db" {
   to_port                      = 5432
 }
 
-resource "aws_vpc_security_group_ingress_rule" "db" {
-  security_group_id            = aws_security_group.ec2.id
-  referenced_security_group_id = aws_security_group.db.id
-  ip_protocol                  = "tcp"
-  from_port                    = 5432
-  to_port                      = 5432
-}
+# resource "aws_vpc_security_group_ingress_rule" "db" {
+#   security_group_id            = aws_security_group.ec2.id
+#   referenced_security_group_id = aws_security_group.db.id
+#   ip_protocol                  = "tcp"
+#   from_port                    = 5432
+#   to_port                      = 5432
+# }

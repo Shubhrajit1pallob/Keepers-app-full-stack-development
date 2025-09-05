@@ -2,7 +2,6 @@ module "database" {
   source       = "./modules/rds"
   project_name = "keepers-app"
   security_group_ids = [
-    aws_security_group.ec2.id,
     aws_security_group.db.id
   ]
   subnet_ids = [
