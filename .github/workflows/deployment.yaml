@@ -90,6 +90,9 @@ jobs:
               id: website_url
               run: echo "website_url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
               working-directory: ./Terraform
+            
+            - name: Print Website URL
+              run: echo "Website URL is ${{ steps.website_url.outputs.website_url }}"
 
     build-react-app:
       runs-on: ubuntu-latest
