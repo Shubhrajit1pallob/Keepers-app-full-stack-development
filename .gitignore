@@ -6,7 +6,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -71,7 +70,7 @@ yarn-error.log*
 
 # React Build
 /build
-/dist
+# /dist
 
 # React Hot Reload
 .cache/
@@ -129,5 +128,3 @@ coverage.xml
 *.temp
 tmp/
 temp/
-
-!/my-react-app/dist/  # Allow the React app's dist/ folder
