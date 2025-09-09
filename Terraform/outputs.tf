@@ -17,16 +17,16 @@ output "instance_elastic_ip" {
 }
 
 output "rds_instance_endpoint" {
-  value = module.database.rds_instance_endpoint
+  value       = module.database.rds_instance_endpoint
   description = "The RDS instance endpoint"
 }
 
 output "rds_instance_port" {
-  value = module.database.rds_instance_port
+  value       = module.database.rds_instance_port
   description = "The RDS instance port"
 }
 
 output "rds_instance_name" {
-  value = module.database.rds_instance_name
+  value       = module.database.rds_instance_name
   description = "The RDS instance name"
 }

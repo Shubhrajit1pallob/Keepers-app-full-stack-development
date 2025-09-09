@@ -119,6 +119,17 @@ resource "aws_security_group" "ec2" {
     prefix_list_ids  = []
     self             = false
   }
+  ingress {
+    cidr_blocks      = ["0.0.0.0/0"]
+    description      = "Allow all inbound traffic"
+    from_port        = 8888
+    to_port          = 8888
+    protocol         = "tcp"
+    security_groups  = []
+    ipv6_cidr_blocks = []
+    prefix_list_ids  = []
+    self             = false
+  }
 
   // Allow inbound HTTP traffic
   ingress {
