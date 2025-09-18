@@ -168,7 +168,7 @@ jobs:
                 host: ${{ env.INSTANCE_IP }}
                 username: ubuntu
                 key: ${{ secrets.AWS_SSH_KEY_PRIVATE }}
-                envs: AWS_SSH_KEY_PRIVATE,REGISTRY,REPOSITORY,IMAGE_TAG,AWS_DEFAULT_REGION,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,AWS_REGION,AWS_SSH_KEY_PUBLIC,AWS_TF_STATE_BUCKET_NAME
+                envs: RDS_INSTANCE_PASSWORD,RDS_INSTANCE_USERNAME,RDS_INSTANCE_NAME,RDS_INSTANCE_PORT,RDS_INSTANCE_ENDPOINT,AWS_SSH_KEY_PRIVATE,REGISTRY,REPOSITORY,IMAGE_TAG,AWS_DEFAULT_REGION,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,AWS_REGION,AWS_SSH_KEY_PUBLIC,AWS_TF_STATE_BUCKET_NAME
                 script: |-
                     sudo apt update -y
                     sudo apt install docker.io -y
@@ -178,7 +178,7 @@ jobs:
                     sudo docker rm myapp || true
                     sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
                     sudo docker run -d --name myapp \
-                     -p 80:3000 \
+                     -p 8888:8888 \
                      -e DB_HOST=$RDS_INSTANCE_ENDPOINT \
                      -e DB_PORT=$RDS_INSTANCE_PORT \
                      -e DB_NAME=$RDS_INSTANCE_NAME \

@@ -23,6 +23,10 @@ The project demonstrates **service decoupling**, **modular architecture**, and d
 - PostgreSQL stores and retrieves notes data  
 - AWS hosts the services, with Terraform for provisioning and GitHub Actions for CI/CD automation  
 
+
+![App Workflow](Screenshot%202025-09-17%20at%208.34.30%E2%80%AFPM.png)
+
+
 ---
 
 ## ⚙️ Tech Stack  
