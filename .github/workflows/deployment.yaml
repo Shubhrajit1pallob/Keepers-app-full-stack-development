@@ -26,10 +26,10 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
             
             - name: Set up Terraform
-              uses: hashicorp/setup-terraform@v1
+              uses: hashicorp/setup-terraform@v3
               with:
                 terraform_wrapper: false
                 # cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}. # This is optional if you are not using Terraform Cloud or Enterprise
@@ -99,12 +99,12 @@ jobs:
       needs: deploy-infra
       steps:
         - name: Checkout code
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
 
         - name: Set up Node.js
-          uses: actions/setup-node@v2
+          uses: actions/setup-node@v4
           with:
-            node-version: '14'
+            node-version: '20'
 
         - name: Install dependencies
           run: npm install
@@ -130,7 +130,7 @@ jobs:
         needs: deploy-infra
         steps: 
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Set IP env Variable
               run: echo "INSTANCE_IP=${{ needs.deploy-infra.outputs.ele_instance_ip }}" >> $GITHUB_ENV
