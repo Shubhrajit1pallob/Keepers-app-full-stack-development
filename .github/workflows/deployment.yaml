@@ -163,6 +163,13 @@ jobs:
                 REPOSITORY: keepers-app
                 IMAGE_TAG: ${{ github.sha }}
                 AWS_DEFAULT_REGION: us-east-1
+                # The names listed in `envs:` below are read from this step's environment.
+                # They were never defined, so the container started with empty DB settings.
+                RDS_INSTANCE_ENDPOINT: ${{ needs.deploy-infra.outputs.rds_instance_endpoint }}
+                RDS_INSTANCE_PORT: ${{ needs.deploy-infra.outputs.rds_instance_port }}
+                RDS_INSTANCE_NAME: ${{ needs.deploy-infra.outputs.rds_instance_name }}
+                RDS_INSTANCE_USERNAME: ${{ secrets.AWS_RDS_USERNAME }}
+                RDS_INSTANCE_PASSWORD: ${{ secrets.AWS_RDS_PASSWORD }}
               uses: appleboy/ssh-action@master
               with:
                 host: ${{ env.INSTANCE_IP }}
